@@ -1,0 +1,11 @@
+.ge-textarea {
+  padding: 10px 20px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.ge-textarea:focus,
+.ge-textarea:hover {
+  border-color: indianred;
+}

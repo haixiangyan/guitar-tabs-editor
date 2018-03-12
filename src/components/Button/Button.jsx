@@ -19,6 +19,7 @@ export default class Button extends Component {
 
     return (
       <span 
+        onClick={onClick}
         className={`ge-btn ge-${type}-btn${filteredClassName}`}
         style={style}>
         {children}

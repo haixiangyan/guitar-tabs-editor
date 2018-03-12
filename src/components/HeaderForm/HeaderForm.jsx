@@ -21,7 +21,9 @@ export default class HeaderForm extends Component {
 
   render() {
     const {
-      form
+      form,
+      save,
+      reset
     } = this.props;
 
     return (
@@ -54,13 +56,15 @@ export default class HeaderForm extends Component {
         <div className="operation">
           <Button 
             style={styles.offsetRight} 
-            type="primary">
+            type="primary"
+            onClick={save}>
             Save
           </Button>
 
           <Button 
-            type="danger">
-            Cancel
+            type="danger"
+            onClick={reset}>
+            Reset
           </Button>
         </div>
       </div>
@@ -70,11 +74,15 @@ export default class HeaderForm extends Component {
 
 HeaderForm.propTypes = {
   onChange: PropTypes.func,
+  save: PropTypes.func,
+  reset: PropTypes.func,
   form: PropTypes.object
 };
 
 HeaderForm.defaultProps = {
   onChange: () => {},
+  save: () => {},
+  reset: () => {},
   form: {
     song: '',
     singer: '',

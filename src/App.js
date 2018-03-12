@@ -12,36 +12,69 @@ class App extends Component {
 
   state = {
     // Basic information of this song
-    form: {
+    headerForm: {
       song: '',
       singer: '',
       composer: ''
+    },
+    // Editor content
+    editorForm: {
+      content: ''
     }
   }
 
-  // Form onChange Handler
-  handleForm = (form) => {
-    this.setState({ form });
+  // Header form onChange Handler
+  handleHeaderForm = (headerForm) => {
+    this.setState({ headerForm });
+  }
+
+  // Editor form onChange handler
+  handleEditorForm = (content) => {
+    this.setState({ 
+      editorForm: {
+        ...this.editorForm,
+        content
+      } 
+    });
+  }
+
+  // Save this tab
+  save = () => {
+    alert('This tab is saved!');
+  }
+
+  // Reset this tab
+  reset = () => {
+    alert('The draft is reset!');
   }
 
   render() {
     const {
-      form
+      headerForm,
+      editorForm
     } = this.state;
 
     return (
       <div className="App">
         <header>
-          <HeaderForm 
-            form={form} 
-            onChange={this.handleForm}>
+          <HeaderForm
+            form={headerForm} 
+            onChange={this.handleHeaderForm}
+            save={this.save}
+            reset={this.reset}>
           </HeaderForm>
         </header>
         
-        <div className="edit-container">
-          <Editor></Editor>
+        <div className="ge-edit-container">
+          <Editor 
+            form={editorForm}
+            onChange={this.handleEditorForm}>
+          </Editor>
           
-          <Previewer form={form}></Previewer>
+          <Previewer 
+            headerForm={headerForm} 
+            editorForm={editorForm}>
+          </Previewer>
         </div>
       </div>
     );

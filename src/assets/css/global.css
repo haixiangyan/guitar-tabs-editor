@@ -7,6 +7,8 @@
     padding: 20px 0;
     margin: 0 auto;
     width: 960px;
+    height: 100vh;
+    box-sizing: border-box;
   }
 }
 
@@ -14,8 +16,10 @@
  * APP styles
  */
 
-.edit-container {
+.ge-edit-container {
+  margin-top: 20px;
   display: flex;
+  justify-content: space-between;
 }
 
 /**
@@ -29,4 +33,10 @@ button {
 html {
   font: 14px/1.5 Arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;
   background: rgb(241, 240, 233);
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  padding: 0;
 }
