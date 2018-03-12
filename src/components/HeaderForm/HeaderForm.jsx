@@ -34,7 +34,7 @@ export default class HeaderForm extends Component {
             value={form.song}
             style={styles.offsetRight} 
             type="text" 
-            placeholder="Name of song"
+            placeholder="Song"
             onChange={this.onChange}/>
           
           <Input 

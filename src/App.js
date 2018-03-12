@@ -8,18 +8,21 @@ import Previewer from './components/Previewer/Previewer';
 // Import global css styles
 import './assets/css/global.css';
 
+// Import default value
+import defaultValues from './assets/default/index';
+
 class App extends Component {
 
   state = {
     // Basic information of this song
     headerForm: {
-      song: '',
-      singer: '',
-      composer: ''
+      song: 'Unknown song',
+      singer: 'Unknown singer',
+      composer: 'Unknown composer'
     },
     // Editor content
     editorForm: {
-      content: ''
+      content: defaultValues.content
     }
   }
 
