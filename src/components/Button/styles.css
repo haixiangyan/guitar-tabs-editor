@@ -1,0 +1,31 @@
+.ge-btn {
+  padding: 5px 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 4px;
+  transition: all .5s;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.ge-btn:hover {
+  opacity: 1;
+}
+
+.ge-primary-btn {
+  background: indianred;
+}
+
+.ge-primary-btn:hover {
+  background: indianred;
+}
+
+.ge-danger-btn {
+  background: #909399;
+}
+
+.ge-danger-btn:hover {
+  background: #909399;
+}

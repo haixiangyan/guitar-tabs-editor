@@ -1,18 +1,48 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// Import custom components
+import HeaderForm from './components/HeaderForm/HeaderForm';
+import Editor from './components/Editor/Editor';
+import Previewer from './components/Previewer/Previewer';
+
+// Import global css styles
+import './assets/css/global.css';
 
 class App extends Component {
+
+  state = {
+    // Basic information of this song
+    form: {
+      song: '',
+      singer: '',
+      composer: ''
+    }
+  }
+
+  // Form onChange Handler
+  handleForm = (form) => {
+    this.setState({ form });
+  }
+
   render() {
+    const {
+      form
+    } = this.state;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header>
+          <HeaderForm 
+            form={form} 
+            onChange={this.handleForm}>
+          </HeaderForm>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        
+        <div className="edit-container">
+          <Editor></Editor>
+          
+          <Previewer form={form}></Previewer>
+        </div>
       </div>
     );
   }

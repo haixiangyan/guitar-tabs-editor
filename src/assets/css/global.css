@@ -1,0 +1,32 @@
+/**
+ * Media query
+ */
+
+@media (min-width: 960px) {
+  html {
+    padding: 20px 0;
+    margin: 0 auto;
+    width: 960px;
+  }
+}
+
+/**
+ * APP styles
+ */
+
+.edit-container {
+  display: flex;
+}
+
+/**
+ * Global styles
+*/
+
+button {
+  border: none;
+}
+
+html {
+  font: 14px/1.5 Arial,"Microsoft Yahei","Hiragino Sans GB",sans-serif;
+  background: rgb(241, 240, 233);
+}

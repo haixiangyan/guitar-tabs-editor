@@ -1,0 +1,13 @@
+.ge-input {
+  padding: 5px 10px;
+  border: 1px solid #909399;
+  background: white;
+  outline: none;
+  font-size: 1em;
+  border-radius: 2px;
+}
+
+.ge-input:hover,
+.ge-input:focus {
+  border-color: indianred;
+}
