@@ -8,6 +8,8 @@ const spaceRegExp = /^[\s]*$/gm
 const commentRegExp = /^(?:{comment:([^}]*)})$/g;
 const startTabRegExp = /^{start_of_tab}$/g;
 const endTabRegExp = /^{end_of_tab}$/g;
+const startChorusRegExp = /^{start_of_chorus}$/g;
+const endChorusRegExp = /^{end_of_chorus}$/g;
 
 // Component of tab
 const Comment = function (props) {
@@ -15,6 +17,16 @@ const Comment = function (props) {
 }
 const Lyrics = function (props) {
   return <p>{props.children}</p>
+}
+const Chorus = function (props) {
+  const styles = {
+    fontSize: '1em'
+  }
+  return (
+    <pre style={styles}>
+      {props.children}
+    </pre>
+  )
 }
 
 export default {
@@ -53,7 +65,10 @@ export default {
     let sourceBuffer = source.split('\n'),
         sourceBufferLen = sourceBuffer.length,
         renderedBuffer = [],
-        flag = '', // To cache the label
+        flag = {
+          id: '',
+          index: -1,
+        }, // To cache the label
         text = '';
 
     // Iterate each line
@@ -61,14 +76,27 @@ export default {
       // Cache current text
       text = sourceBuffer[i];
 
+      if (startChorusRegExp.test(text)) {
+         renderedBuffer[renderedBuffer.length] = '';
+         /*
+          * If this line match {start_of_chorus} label
+          * then append the tab component to the buffer
+          */
+         flag = {
+          id: 'chorus',
+          index: renderedBuffer.length - 1 // record current rendered array index
+        };
+      }
       // Match {start_of_tab} label
-      if (startTabRegExp.test(text)) {
+      else if (startTabRegExp.test(text)) {
         /*
-         * If this line match {start_of_tab} label
-         * then append the tab component to the buffer
-         */
-        // console.log(text, startTabRegExp.test(text))
-        flag = 'tab';
+          * If this line match {end_of_chorus} label
+          * then append the tab component to the buffer
+          */
+        flag = {
+          id: 'tab',
+          index: renderedBuffer.length - 1 // record current rendered array index
+        }
       }
       // Match {end_of_tab} label
       else if (endTabRegExp.test(text)) {
@@ -76,13 +104,28 @@ export default {
          * If this line match {end_of_tab} label
          * then reset flag
          */
-        // console.log(text, endTabRegExp.test(text))
-        flag = '';
+        flag = {
+          id: '',
+          index: -1
+        };
+      }
+      else if (endChorusRegExp.test(text)) {
+        // Add the whole component to rendered array
+        // console.log(renderedBuffer[flag.index])
+        renderedBuffer[flag.index] = (<Chorus>{renderedBuffer[flag.index]}</Chorus>);
+        flag = {
+          id: '',
+          index: -1
+        };
       }
       // Reading tab content
-      else if (flag === 'tab') {
-        // console.log('tab', text, flag)
+      else if (flag.id === 'tab') {
         renderedBuffer.push(text);
+      }
+      // Reading chorus content
+      else if (flag.id === 'chorus') {
+        // Append text to blockquote
+        renderedBuffer[flag.index] = renderedBuffer[flag.index] + text + '\n';
       }
       // Match {comment: ...} label
       else if (commentRegExp.test(text)) {
