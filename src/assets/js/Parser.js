@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Lyrics from './Lyrics/Lyrics';
+
 // Regular expression for global source text matching
 const metaRegExp = /^(?:{meta:([^}]*)})$/gm;
 const spaceRegExp = /^[\s]*$/gm
@@ -10,23 +12,38 @@ const startTabRegExp = /^{start_of_tab}$/g;
 const endTabRegExp = /^{end_of_tab}$/g;
 const startChorusRegExp = /^{start_of_chorus}$/g;
 const endChorusRegExp = /^{end_of_chorus}$/g;
+const chordRegExp = /\[([\w]*)\]/g;
 
 // Component of tab
-const Comment = function (props) {
+const Comment = function(props) {
   return <blockquote>{props.children}</blockquote>;
 }
-const Lyrics = function (props) {
-  return <p>{props.children}</p>
-}
-const Chorus = function (props) {
+const Chorus = function(props) {
   const styles = {
     fontSize: '1em'
   }
   return (
-    <pre style={styles}>
-      {props.children}
-    </pre>
+    <blockquote style={styles}>
+      <pre>
+        {props.children}
+      </pre>
+    </blockquote>
   )
+}
+
+// Global resources
+const chords = [];
+
+const mapChords = function(line) {
+  let offset = 2;
+
+  line.replace(chordRegExp, (match, chord, index) => {
+    chords.push({
+      name: chord,
+      line: line,
+      index: chord.length + index + offset
+    })
+  })
 }
 
 export default {
@@ -126,6 +143,8 @@ export default {
       else if (flag.id === 'chorus') {
         // Append text to blockquote
         renderedBuffer[flag.index] = renderedBuffer[flag.index] + text + '\n';
+        // Map chords
+        mapChords(text);
       }
       // Match {comment: ...} label
       else if (commentRegExp.test(text)) {
@@ -144,6 +163,8 @@ export default {
          * then append the Lyrics component
          */
         renderedBuffer.push(<Lyrics>{text}</Lyrics>)
+        // Map chords
+        mapChords(text);
       }
     }
 

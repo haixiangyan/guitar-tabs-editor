@@ -332,7 +332,6 @@
   margin-top: 0;
   margin-bottom: 0;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
 }
 
 .markdown-body .octicon {
@@ -633,12 +632,9 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 16px;
   overflow: auto;
-  font-size: 85%;
-  line-height: 1.45;
-  background-color: #f6f8fa;
-  border-radius: 3px;
+  line-height: 2;
+  color: #24292e;
 }
 
 .markdown-body pre code {

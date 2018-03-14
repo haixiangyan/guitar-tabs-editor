@@ -3,6 +3,7 @@
   outline: none;
   box-sizing: border-box;
   font-size: 1em;
+  font-family: Courier, "Microsoft Yahei", "Hiragino Sans GB", monospace;
 }
 
 .ge-textarea:focus,
