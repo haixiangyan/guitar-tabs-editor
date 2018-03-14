@@ -1,0 +1,23 @@
+<svg width="90" height="86" 
+  xmlns="http://www.w3.org/2000/svg">
+  <line x1="16" y1="20" x2="76" y2="20" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="16" y1="34" x2="76" y2="34" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="16" y1="48" x2="76" y2="48" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="16" y1="62" x2="76" y2="62" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="16" y1="76" x2="76" y2="76" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="16" y1="20" x2="16" y2="76" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="28" y1="20" x2="28" y2="76" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="40" y1="20" x2="40" y2="76" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="52" y1="20" x2="52" y2="76" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="64" y1="20" x2="64" y2="76" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="76" y1="20" x2="76" y2="76" stroke-width="0.5" stroke="#333333"></line>
+  <circle cx="28" cy="55" r="6" stroke="none" fill="#555555"></circle>
+  <text x="28" y="58.5" stroke="none" font-size="9" font-family="Arial" fill="#ffffff" text-anchor="middle">3</text>
+  <circle cx="40" cy="41" r="6" stroke="none" fill="#555555"></circle>
+  <text x="40" y="44.5" stroke="none" font-size="9" font-family="Arial" fill="#ffffff" text-anchor="middle">2</text>
+  <circle cx="64" cy="27" r="6" stroke="none" fill="#555555"></circle>
+  <text x="64" y="30.5" stroke="none" font-size="9" font-family="Arial" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="46" y="15.333333333333332" stroke="none" font-size="13" font-family="Arial Unicode MS, Arial" fill="#333333" letter-spacing="0" text-anchor="middle">C</text>
+  <line x1="12" y1="16" x2="20" y2="24" stroke-width="0.5" stroke="#333333"></line>
+  <line x1="20" y1="16" x2="12" y2="24" stroke-width="0.5" stroke="#333333"></line>
+</svg>

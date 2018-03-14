@@ -1,0 +1,9 @@
+.ge-previewer-header-container {
+  margin-top: 30px;
+}
+
+/* Chord group styles */
+.chord-group {
+  display: flex;
+  flex-wrap: wrap;
+}

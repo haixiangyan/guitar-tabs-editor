@@ -1,4 +1,19 @@
+.ge-previewer-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Keyword styles */
 .ge-previewer-header .keyword {
-  font-size: .8em;
+  font-size: .9em;
   color: indianred;
+}
+
+/* Meta data styles */
+.ge-previewer-header .meta {
+  margin: 24px 0 16px;
+}
+
+.ge-previewer-header .meta tr td {
+  font-size: .8em;
 }

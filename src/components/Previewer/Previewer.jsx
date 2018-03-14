@@ -15,7 +15,7 @@ export default class Previewer extends Component {
 
     return (
       <div className="ge-previewer markdown-body">
-        <Header headerForm={headerForm}></Header>
+        <Header editorForm={editorForm} headerForm={headerForm}></Header>
         <Body editorForm={editorForm}></Body>
       </div>
     )

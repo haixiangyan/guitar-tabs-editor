@@ -2,11 +2,11 @@
  * Media query
  */
 
-@media (min-width: 960px) {
+@media (min-width: 1024px) {
   html {
     padding: 20px 0;
     margin: 0 auto;
-    width: 960px;
+    width: 1024px;
     height: 100vh;
     box-sizing: border-box;
   }
