@@ -1,22 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+// Import react-switch
+import Switch from 'react-switch';
+
 // Import custom components
 import Button from '../Button/Button';
 import Input from '../Input/Input';
+import { checkedIcon, uncheckedIcon } from './SwitchIcon';
 
 // Import custom styles
 import './styles.css';
 import styles from './styles';
 
 export default class HeaderForm extends Component {
-  // Input Handler
+  // Input handler
   onChange = (event) => {
     // Emit form to APP component
     this.props.onChange({
       ...this.props.form,
       [event.target.name]: event.target.value
     });
+  }
+
+  // Switch handler
+  onSwitchChange = (isEmbedChord) => {
+    this.props.onChange({
+      ...this.props.form,
+      isEmbedChord
+    })
   }
 
   render() {
@@ -54,6 +66,16 @@ export default class HeaderForm extends Component {
         </form>
 
         <div className="operation">
+          <Switch
+            width={75}
+            className="embedchord-switch"
+            onColor="#CD5C5C"
+            checkedIcon={checkedIcon}
+            uncheckedIcon={uncheckedIcon}
+            onChange={this.onSwitchChange}
+            checked={form.isEmbedChord}>
+          </Switch>
+
           <Button 
             style={styles.offsetRight} 
             type="primary"

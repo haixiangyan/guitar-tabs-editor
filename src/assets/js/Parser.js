@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Lyrics from './Lyrics/Lyrics';
+import Comment from './Comment/Comment';
+import Chorus from './Chorus/Chorus';
 
 // Regular expression for global source text matching
 const metaRegExp = /^(?:{meta:([^}]*)})$/gm;
@@ -13,25 +15,6 @@ const endTabRegExp = /^{end_of_tab}$/g;
 const startChorusRegExp = /^{start_of_chorus}$/g;
 const endChorusRegExp = /^{end_of_chorus}$/g;
 const chordRegExp = /\[([\w]*)\]/g;
-
-// Component of tab
-const Comment = function(props) {
-  return <blockquote>{props.children}</blockquote>;
-}
-const Chorus = function(props) {
-  const styles = {
-    display: 'flex',
-    flexDirection: 'column',
-    fontSize: '1em',
-  }
-  return (
-    <blockquote style={styles}>
-      {/* <pre> */}
-        {props.children}
-      {/* </pre> */}
-    </blockquote>
-  )
-}
 
 export default {
   /**
@@ -64,7 +47,7 @@ export default {
    * To parse the body excluding meta data
    * @param {string} source 
    */
-  parseBody(source) {
+  parseBody(source, isEmbedChord) {
     let sourceBuffer = source.split('\n'),
         sourceBufferLen = sourceBuffer.length,
         renderedBuffer = [],
@@ -119,7 +102,7 @@ export default {
         // Add the whole component to rendered array
         renderedBuffer[flag.index] = (<Chorus>{
           renderedBuffer[flag.index].map((lyrics, index) => (
-            <Lyrics key={index}>{lyrics}</Lyrics>
+            <Lyrics isEmbedChord={isEmbedChord} key={index}>{lyrics}</Lyrics>
           ))
         }</Chorus>);
         flag = {
@@ -152,7 +135,7 @@ export default {
          * If this line is lyrics
          * then append the Lyrics component
          */
-        renderedBuffer.push(<Lyrics>{text}</Lyrics>)
+        renderedBuffer.push(<Lyrics isEmbedChord={isEmbedChord}>{text}</Lyrics>)
       }
     }
 

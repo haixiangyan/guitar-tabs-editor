@@ -16,7 +16,7 @@ export default class Previewer extends Component {
     return (
       <div className="ge-previewer markdown-body">
         <Header editorForm={editorForm} headerForm={headerForm}></Header>
-        <Body editorForm={editorForm}></Body>
+        <Body editorForm={editorForm} headerForm={headerForm}></Body>
       </div>
     )
   }
@@ -29,6 +29,7 @@ Previewer.propTypes = {
 
 Previewer.defaultProps = {
   headerForm: {
+    isEmbedChord: false,
     song: '',
     singer: '',
     composer: ''

@@ -2,3 +2,23 @@
   display: flex;
   justify-content: space-between;
 }
+
+.ge-header-form .operation{
+  display: flex;
+  align-items: center;
+}
+
+.ge-header-form .operation .embedchord-switch {
+  margin-right: 10px;
+}
+
+.ge-header-form .operation .embedchord-switch .react-switch-bg > div:first-child {
+  padding-left: 7px;
+  display: flex;
+  align-items: center;
+}
+
+.ge-header-form .operation .embedchord-switch .react-switch-bg > div:nth-child(2) {
+  display: flex;
+  align-items: center;
+}

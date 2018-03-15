@@ -6,7 +6,6 @@
   font-family: Courier, "Microsoft Yahei", "Hiragino Sans GB", monospace;
 }
 
-.ge-textarea:focus,
-.ge-textarea:hover {
+.ge-textarea:focus {
   border-color: indianred;
 }

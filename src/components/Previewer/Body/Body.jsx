@@ -11,10 +11,11 @@ export default class Body extends PureComponent {
 
   render() {
     const {
-      editorForm
+      headerForm,
+      editorForm,
     } = this.props;
     let test1 = Parser.preProcess(editorForm.content);
-    let test = Parser.parseBody(test1);   
+    let test = Parser.parseBody(test1, headerForm.isEmbedChord);   
 
     return (
       <div className="ge-previewer-body-container">
@@ -34,11 +35,18 @@ export default class Body extends PureComponent {
 }
 
 Body.propTypes = {
-  editorForm: PropTypes.object
+  headerForm: PropTypes.object,
+  editorForm: PropTypes.object,
 }
 
 Body.defaultProps = {
+  headerForm: {
+    isEmbedChord: false,
+    song: '',
+    singer: '',
+    composer: ''
+  },
   editorForm: {
     content: ''
-  }
+  },
 }

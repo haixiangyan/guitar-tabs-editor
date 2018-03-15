@@ -18,7 +18,8 @@ class App extends Component {
     headerForm: {
       song: 'Unknown song',
       singer: 'Unknown singer',
-      composer: 'Unknown composer'
+      composer: 'Unknown composer',
+      isEmbedChord: false
     },
     // Editor content
     editorForm: {
