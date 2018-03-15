@@ -31,21 +31,6 @@ const Chorus = function(props) {
   )
 }
 
-// Global resources
-const chords = [];
-
-const mapChords = function(line) {
-  let offset = 2;
-
-  line.replace(chordRegExp, (match, chord, index) => {
-    chords.push({
-      name: chord,
-      line: line,
-      index: chord.length + index + offset
-    })
-  })
-}
-
 export default {
   /**
    * Remove some unnecssary charaters
@@ -56,7 +41,6 @@ export default {
 
     // Remove space
     filteredSource = filteredSource.replace(metaRegExp, '');
-    filteredSource = filteredSource.replace(spaceRegExp, '');
 
     return filteredSource;
   },
@@ -93,7 +77,10 @@ export default {
       // Cache current text
       text = sourceBuffer[i];
 
-      if (startChorusRegExp.test(text)) {
+      if (text === '') {
+        // Ignore empty line
+      }
+      else if (startChorusRegExp.test(text)) {
          renderedBuffer[renderedBuffer.length] = '';
          /*
           * If this line match {start_of_chorus} label
@@ -143,8 +130,6 @@ export default {
       else if (flag.id === 'chorus') {
         // Append text to blockquote
         renderedBuffer[flag.index] = renderedBuffer[flag.index] + text + '\n';
-        // Map chords
-        mapChords(text);
       }
       // Match {comment: ...} label
       else if (commentRegExp.test(text)) {
@@ -163,8 +148,6 @@ export default {
          * then append the Lyrics component
          */
         renderedBuffer.push(<Lyrics>{text}</Lyrics>)
-        // Map chords
-        mapChords(text);
       }
     }
 

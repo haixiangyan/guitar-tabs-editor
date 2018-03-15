@@ -1,4 +1,27 @@
+.ge-lyrics {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ge-lyrics span {
+  letter-spacing: 1px;
+}
+
+.ge-lyrics .ge-chord-item {
+  display: inline-flex;
+  align-items: center;
+}
+
 .ge-lyrics .ge-anchor {
+  display: inline-block;
+  height: 17px;
   line-height: 1em;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #24292e;
+}
+
+.ge-lyrics .ge-extra {
+  display: inline-block;
+  height: 17px;
+  line-height: 1em;
+  border-bottom: 1px solid white;
 }

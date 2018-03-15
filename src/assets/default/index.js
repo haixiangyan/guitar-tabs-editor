@@ -14,7 +14,8 @@ export default {
 {end_of_tab}
 
 {comment: 主歌 A}
-[C] 我有[Em7]好多谱子[F]
+[C] 我有[Em7]好多
+谱子[F]
 [C] 个个[Em7]都来之不易[C]
 
 [C]踏破[Em7]多少双[F]铁鞋
