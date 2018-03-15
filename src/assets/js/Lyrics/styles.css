@@ -1,4 +1,5 @@
 .ge-lyrics {
+  padding: 10px 0;
   display: inline-flex;
   align-items: center;
 }
@@ -13,15 +14,22 @@
 }
 
 .ge-lyrics .ge-anchor {
+  position: relative;
   display: inline-block;
-  height: 17px;
-  line-height: 1em;
+  height: 25px;
+  line-height: 2em;
   border-bottom: 1px solid #24292e;
+}
+
+.ge-lyrics .ge-anchor .ge-anchor-chord {
+  position: absolute;
+  top: -18px;
+  color: indianred;
 }
 
 .ge-lyrics .ge-extra {
   display: inline-block;
-  height: 17px;
-  line-height: 1em;
+  height: 25px;
+  line-height: 2em;
   border-bottom: 1px solid white;
 }

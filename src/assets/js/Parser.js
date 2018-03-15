@@ -20,13 +20,15 @@ const Comment = function(props) {
 }
 const Chorus = function(props) {
   const styles = {
+    display: 'flex',
+    flexDirection: 'column',
     fontSize: '1em'
   }
   return (
     <blockquote style={styles}>
-      <pre>
+      {/* <pre> */}
         {props.children}
-      </pre>
+      {/* </pre> */}
     </blockquote>
   )
 }
@@ -81,7 +83,7 @@ export default {
         // Ignore empty line
       }
       else if (startChorusRegExp.test(text)) {
-         renderedBuffer[renderedBuffer.length] = '';
+         renderedBuffer[renderedBuffer.length] = [];
          /*
           * If this line match {start_of_chorus} label
           * then append the tab component to the buffer
@@ -115,8 +117,12 @@ export default {
       }
       else if (endChorusRegExp.test(text)) {
         // Add the whole component to rendered array
-        // console.log(renderedBuffer[flag.index])
-        renderedBuffer[flag.index] = (<Chorus>{renderedBuffer[flag.index]}</Chorus>);
+        console.log(renderedBuffer[flag.index])
+        renderedBuffer[flag.index] = (<Chorus>{
+          renderedBuffer[flag.index].map((lyrics, index) => (
+            <Lyrics key={index}>{lyrics}</Lyrics>
+          ))
+        }</Chorus>);
         flag = {
           id: '',
           index: -1
@@ -129,7 +135,7 @@ export default {
       // Reading chorus content
       else if (flag.id === 'chorus') {
         // Append text to blockquote
-        renderedBuffer[flag.index] = renderedBuffer[flag.index] + text + '\n';
+        renderedBuffer[flag.index].push(text);
       }
       // Match {comment: ...} label
       else if (commentRegExp.test(text)) {

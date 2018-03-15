@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 // Import styles from css
 import './styles.css';
@@ -7,7 +7,7 @@ import './styles.css';
 const chordRegExp = /(?:\[([\w]*)\])?(.)?([^[]*)/g;
 const englishRegExp = /[a-zA-Z]/;
 
-export default class Lyrics extends Component {
+export default class Lyrics extends PureComponent {
 
   /**
    * Method to map chords inside the string
@@ -28,15 +28,6 @@ export default class Lyrics extends Component {
           anchor: anchor ? anchor : '',
           extra: extra ? extra : ''
         })
-
-
-      console.log({
-        name: chord,
-        line: line,
-        index: chord ? chord.length + index + offset : -1,
-        anchor: anchor ? anchor : '',
-        extra: extra ? extra : ''
-      })
       }
     })
 
@@ -67,7 +58,11 @@ export default class Lyrics extends Component {
               <span className="ge-chord-item" key={index}>
                 <span 
                   style={this.mapAnchorStyle(chordData.anchor, chordData.index)} 
-                  className="ge-anchor">{chordData.anchor}
+                  className="ge-anchor">
+                  {/* Anchor chord */}
+                  <span className="ge-anchor-chord">{chordData.name}</span>
+                  {/* Anchor Text */}
+                  <span>{chordData.anchor}</span>
                 </span>
                 <span className="ge-extra">{chordData.extra}</span>
               </span>

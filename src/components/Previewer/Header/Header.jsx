@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 // Import custom styles
@@ -7,7 +7,7 @@ import './styles.css';
 // Import Parser
 import Parser from '../../../assets/js/Parser';
 
-export default class Header extends Component {
+export default class Header extends PureComponent {
   render() {
     const { headerForm, editorForm } = this.props;
 
