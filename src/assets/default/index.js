@@ -36,6 +36,5 @@ export default {
 [Am]长相厮守
 [F]朝夕为伴
 [Am]啦啦啦啦～～ [C]啦啦啦啦～～
-{end_of_chorus}
-  `
+{end_of_chorus}`
 }

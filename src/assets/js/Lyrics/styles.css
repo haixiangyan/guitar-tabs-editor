@@ -1,18 +1,20 @@
 .ge-lyrics {
-  padding: 10px 0;
   display: inline-flex;
   align-items: center;
 }
 
-.ge-lyrics span {
-  letter-spacing: 1px;
+.ge-lyrics span,
+.ge-lyrics p {
+  letter-spacing: 4px;
 }
 
 .ge-lyrics .ge-chord-item {
+  margin: 5px 0;
   display: inline-flex;
   align-items: center;
 }
 
+/* Anchor for each character */
 .ge-lyrics .ge-anchor {
   position: relative;
   display: inline-block;
@@ -21,9 +23,19 @@
   border-bottom: 1px solid #24292e;
 }
 
-.ge-lyrics .ge-anchor .ge-anchor-chord {
+/* Chord name above anchor */
+.ge-lyrics .ge-anchor .ge-anchor-chordname {
   position: absolute;
   top: -18px;
+  color: indianred;
+  letter-spacing: 1px;
+}
+
+/* Chord image above anchor */
+.ge-lyrics .ge-anchor .ge-anchor-chordimg {
+  position: absolute;
+  top: -45px;
+  left: -10px;
   color: indianred;
 }
 

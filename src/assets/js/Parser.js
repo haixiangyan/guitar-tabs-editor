@@ -22,7 +22,7 @@ const Chorus = function(props) {
   const styles = {
     display: 'flex',
     flexDirection: 'column',
-    fontSize: '1em'
+    fontSize: '1em',
   }
   return (
     <blockquote style={styles}>
@@ -117,7 +117,6 @@ export default {
       }
       else if (endChorusRegExp.test(text)) {
         // Add the whole component to rendered array
-        console.log(renderedBuffer[flag.index])
         renderedBuffer[flag.index] = (<Chorus>{
           renderedBuffer[flag.index].map((lyrics, index) => (
             <Lyrics key={index}>{lyrics}</Lyrics>

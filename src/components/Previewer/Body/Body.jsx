@@ -23,7 +23,7 @@ export default class Body extends PureComponent {
         </div>
         {
           test.map((renderedItem, index) => (
-            <section key={index}>
+            <section className="ge-previewer-section" key={index}>
               {renderedItem}
             </section>
           ))
