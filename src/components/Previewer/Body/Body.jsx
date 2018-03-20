@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 
 // import custom components
@@ -7,7 +7,7 @@ import Chord from '../../Chord/Chord';
 import './styles.css';
 
 // Import Parser
-import Parser from '../../../assets/js/Parser';
+import Parser from './Parser';
 
 import chords from '../../../assets/dataSource/chords';
 
@@ -19,20 +19,24 @@ export default class Body extends PureComponent {
       editorForm,
     } = this.props;
     let test1 = Parser.preProcess(editorForm.content);
-    let test = Parser.parseBody(test1, headerForm.isEmbedChord);   
+    let test = Parser.parseBody(test1, headerForm.isEmbedChord);
 
     return (
       <div className="ge-previewer-body-container">
-        <div className="chord-group">
-
-        </div>
-        {/*{*/}
-          {/*test.map((renderedItem, index) => (*/}
-            {/*<section className="ge-previewer-section" key={index}>*/}
-              {/*{renderedItem}*/}
-            {/*</section>*/}
-          {/*))*/}
-        {/*}*/}
+        {/*<div>*/}
+          {/*{*/}
+            {/*chords.map((chord) => (*/}
+              {/*<Chord chord={chord} options={{size: ''}}></Chord>*/}
+            {/*))*/}
+          {/*}*/}
+        {/*</div>*/}
+        {
+          test.map((renderedItem, index) => (
+            <section className="ge-previewer-section" key={index}>
+              {renderedItem}
+            </section>
+          ))
+        }
       </div>
     )
   }

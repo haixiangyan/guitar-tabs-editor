@@ -13,6 +13,7 @@ const startTabRegExp = /^{start_of_tab}$/g;
 const endTabRegExp = /^{end_of_tab}$/g;
 const startChorusRegExp = /^{start_of_chorus}$/g;
 const endChorusRegExp = /^{end_of_chorus}$/g;
+const spaceRegExp = /^[\s]*$/g;
 
 export default {
   /**
@@ -60,7 +61,7 @@ export default {
       // Cache current text
       text = sourceBuffer[i];
 
-      if (text === '') {
+      if (spaceRegExp.test(text)) {
         // Ignore empty line
       }
       else if (startChorusRegExp.test(text)) {
@@ -76,6 +77,7 @@ export default {
       }
       // Match {start_of_tab} label
       else if (startTabRegExp.test(text)) {
+        renderedBuffer[renderedBuffer.length] = [];
         /*
           * If this line match {end_of_chorus} label
           * then append the tab component to the buffer
@@ -87,6 +89,8 @@ export default {
       }
       // Match {end_of_tab} label
       else if (endTabRegExp.test(text)) {
+        console.log(renderedBuffer[flag.index]);
+
         /*
          * If this line match {end_of_tab} label
          * then reset flag
@@ -110,7 +114,7 @@ export default {
       }
       // Reading tab content
       else if (flag.id === 'tab') {
-        renderedBuffer.push(text);
+        renderedBuffer[flag.index].push(text);
       }
       // Reading chorus content
       else if (flag.id === 'chorus') {
@@ -138,5 +142,12 @@ export default {
     }
 
     return renderedBuffer;
+  },
+  /**
+   * Method to parse source
+   * @param source
+   */
+  parseTab(source) {
+
   }
 }

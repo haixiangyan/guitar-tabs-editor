@@ -7,32 +7,80 @@ import './styles.css';
 // Functions to calculate coordinates of different objects according to given point
 import utils from './utils';
 
-const config = {
-  origin: {
-    x: 16,
-    y: 20
-  },
+const chordConfig = {
+  small: {
+    container: {
+      width: 42,
+      height: 48,
+      radius: 3,
+      isShowText: false
+    },
 
-  axisOffset: {
-    x: 12,
-    y: 14
-  },
+    title: {
+      x: 23,
+      y: 9.333333333333334,
+      fontSize: 9
+    },
 
-  textYAxisOffset: 3.5
+    origin: {
+      x: 8,
+      y: 12
+    },
+
+    axisOffset: {
+      x: 6,
+      y: 8
+    },
+
+    crossOffset: 2,
+
+    textYAxisOffset: 3.5
+  },
+  large: {
+    container: {
+      width: 90,
+      height: 86,
+      radius: 6,
+      isShowText: true
+    },
+
+    title: {
+      x: 46,
+      y: 15.333333333333332,
+      fontSize: 13
+    },
+
+    origin: {
+      x: 16,
+      y: 20
+    },
+
+    axisOffset: {
+      x: 12,
+      y: 14
+    },
+
+    crossOffset: 4,
+
+    textYAxisOffset: 3.5
+  }
 };
 
 class Chord extends Component {
   render() {
-    const { chord } = this.props;
+    const { chord, options } = this.props;
 
     const {name, points, lines, crosses, min, max} = chord;
+
+    // Configuration
+    const config = chordConfig[options.size];
 
     // Calculate max and min
     const minPoint = min ? utils.getTextCoordinates(min, config) : -1,
       maxPoint = max ? utils.getTextCoordinates(max, config) : -1;
 
     return (
-      <svg className="ge-chord" width="90" height="86" xmlns="http://www.w3.org/2000/svg">
+      <svg className="ge-chord" width={config.container.width} height={config.container.height} xmlns="http://www.w3.org/2000/svg">
         {/*Horizontal lines*/}
         {
           [0, 1, 2, 3, 4].map((num) => {
@@ -75,14 +123,17 @@ class Chord extends Component {
                 <circle
                   cx={calculatedPoint.x}
                   cy={calculatedPoint.y}
-                  r="6"
+                  r={config.container.radius}
                   stroke="none"
                   fill="#555555"/>
-                <text
-                  x={textPoint.x}
-                  y={textPoint.y}>
-                  {point.text}
-                </text>
+                {
+                  config.container.isShowText &&
+                  <text
+                    x={textPoint.x}
+                    y={textPoint.y}>
+                    {point.text}
+                  </text>
+                }
               </g>)
           })
         }
@@ -100,22 +151,29 @@ class Chord extends Component {
                   x1={startPoint.x}
                   y1={startPoint.y}
                   x2={endPoint.x}
-                  y2={endPoint.y}/>
+                  y2={endPoint.y}
+                  strokeWidth={config.container.radius}/>
                 <circle
                   cx={middlePoint.x}
                   cy={middlePoint.y}
-                  r="6">
+                  r={config.container.radius}>
                 </circle>
-                <text x={middlePoint.x} y={middlePoint.y + config.textYAxisOffset}>
-                  {line.text}
-                </text>
+                {
+                  config.container.isShowText &&
+                  <text x={middlePoint.x} y={middlePoint.y + config.textYAxisOffset}>
+                    {line.text}
+                  </text>
+                }
               </g>
             )
           })
         }
 
         {/*Name of this chord*/}
-        <text className="name" x="46" y="15.333333333333332">
+        <text className="name"
+              fontSize={config.title.fontSize}
+              x={config.title.x}
+              y={config.title.y}>
           {name}
         </text>
 
@@ -191,7 +249,7 @@ Chord.defaultProps = {
     }
   },
   options: {
-    size: 'middle'
+    size: 'large'
   }
 };
 

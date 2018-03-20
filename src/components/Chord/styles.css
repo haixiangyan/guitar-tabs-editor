@@ -7,7 +7,6 @@
 /*Title of this chord*/
 .ge-chord .name {
     stroke: none;
-    font-size: 13px;
     font-family: Arial Unicode MS, Arial;
     fill: #333333;
     letter-spacing: 0;
@@ -30,7 +29,6 @@
 }
 
 .ge-chord .barre line {
-    stroke-width: 6px;
     stroke: #555555;
     stroke-linecap: round;
 }

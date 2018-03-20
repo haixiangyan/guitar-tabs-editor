@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 // Import Parser
-import Parser from '../../../assets/js/Parser';
+import Parser from '../Body/Parser';
 
 export default class Header extends PureComponent {
   render() {
