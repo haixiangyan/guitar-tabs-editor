@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 // import custom components
 import Chord from '../../Chord/Chord';
+
 // Import custom styles
 import './styles.css';
 

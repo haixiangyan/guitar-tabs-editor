@@ -3,6 +3,7 @@ import React from 'react';
 import Lyrics from './Lyrics/Lyrics';
 import Comment from './Comment/Comment';
 import Chorus from './Chorus/Chorus';
+import TabP from '../../TabP/TabP';
 
 import chords from '../../../assets/dataSource/chords';
 
@@ -103,7 +104,7 @@ export default {
       }
       // Match {end_of_tab} label
       else if (endTabRegExp.test(text)) {
-        console.log(renderedBuffer[flag.index]);
+        renderedBuffer[flag.index] = <TabP source={renderedBuffer[flag.index]}/>
 
         /*
          * If this line match {end_of_tab} label
@@ -128,7 +129,7 @@ export default {
       }
       // Reading tab content
       else if (flag.id === 'tab') {
-        renderedBuffer[flag.index].push(text);
+        renderedBuffer[flag.index] = renderedBuffer[flag.index] + text + "\n";
       }
       // Reading chorus content
       else if (flag.id === 'chorus') {

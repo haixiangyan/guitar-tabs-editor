@@ -1,0 +1,18 @@
+.ge-tabp-line {
+    stroke: #333;
+    stroke-width: 0.5;
+}
+
+.ge-tabp-number circle {
+    stroke: none;
+    fill: white;
+    stroke-width: 0;
+}
+
+.ge-tabp-number text {
+    font-size: 9px;
+    font-family: Arial;
+    fill: #333;
+    text-anchor: middle;
+    stroke: none;
+}
