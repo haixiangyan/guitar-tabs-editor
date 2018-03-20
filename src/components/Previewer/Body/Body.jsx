@@ -1,11 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+// import custom components
+import Chord from '../../Chord/Chord';
 // Import custom styles
 import './styles.css';
 
 // Import Parser
 import Parser from '../../../assets/js/Parser';
+
+import chords from '../../../assets/dataSource/chords';
 
 export default class Body extends PureComponent {
 
@@ -22,13 +26,13 @@ export default class Body extends PureComponent {
         <div className="chord-group">
 
         </div>
-        {
-          test.map((renderedItem, index) => (
-            <section className="ge-previewer-section" key={index}>
-              {renderedItem}
-            </section>
-          ))
-        }
+        {/*{*/}
+          {/*test.map((renderedItem, index) => (*/}
+            {/*<section className="ge-previewer-section" key={index}>*/}
+              {/*{renderedItem}*/}
+            {/*</section>*/}
+          {/*))*/}
+        {/*}*/}
       </div>
     )
   }

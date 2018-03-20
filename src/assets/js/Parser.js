@@ -6,7 +6,6 @@ import Chorus from './Chorus/Chorus';
 
 // Regular expression for global source text matching
 const metaRegExp = /^(?:{meta:([^}]*)})$/gm;
-const spaceRegExp = /^[\s]*$/gm
 
 // Regular expression for each line matching
 const commentRegExp = /^(?:{comment:([^}]*)})$/g;
@@ -14,7 +13,6 @@ const startTabRegExp = /^{start_of_tab}$/g;
 const endTabRegExp = /^{end_of_tab}$/g;
 const startChorusRegExp = /^{start_of_chorus}$/g;
 const endChorusRegExp = /^{end_of_chorus}$/g;
-const chordRegExp = /\[([\w]*)\]/g;
 
 export default {
   /**

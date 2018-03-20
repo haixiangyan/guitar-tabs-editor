@@ -35,7 +35,7 @@ export default class HeaderForm extends Component {
     const {
       form,
       save,
-      reset
+      tips
     } = this.props;
 
     return (
@@ -85,8 +85,8 @@ export default class HeaderForm extends Component {
 
           <Button 
             type="danger"
-            onClick={reset}>
-            Reset
+            onClick={tips}>
+            Tips
           </Button>
         </div>
       </div>
@@ -97,14 +97,14 @@ export default class HeaderForm extends Component {
 HeaderForm.propTypes = {
   onChange: PropTypes.func,
   save: PropTypes.func,
-  reset: PropTypes.func,
+  tips: PropTypes.func,
   form: PropTypes.object
 };
 
 HeaderForm.defaultProps = {
   onChange: () => {},
   save: () => {},
-  reset: () => {},
+  tips: () => {},
   form: {
     song: '',
     singer: '',
