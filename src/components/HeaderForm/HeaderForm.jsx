@@ -65,10 +65,10 @@ export default class HeaderForm extends Component {
             onChange={this.onChange}/>
         </form>
 
-        <div className="operation">
+        <div className="ge-operation">
           <Switch
             width={75}
-            className="embedchord-switch"
+            className="ge-embedchord-switch"
             onColor="#CD5C5C"
             checkedIcon={checkedIcon}
             uncheckedIcon={uncheckedIcon}

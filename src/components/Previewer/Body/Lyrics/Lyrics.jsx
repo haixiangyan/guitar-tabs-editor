@@ -64,7 +64,6 @@ export default class Lyrics extends PureComponent {
     const {
       children,
       isEmbedChord,
-      pushChords
     } = this.props;
 
     return (

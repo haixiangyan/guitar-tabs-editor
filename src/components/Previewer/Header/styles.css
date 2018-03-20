@@ -4,16 +4,16 @@
 }
 
 /* Keyword styles */
-.ge-previewer-header .keyword {
+.ge-previewer-header .ge-keyword {
   font-size: .9em;
   color: indianred;
 }
 
 /* Meta data styles */
-.ge-previewer-header .meta {
+.ge-previewer-header .ge-meta {
   margin: 24px 0 16px;
 }
 
-.ge-previewer-header .meta tr td {
+.ge-previewer-header .ge-meta tr td {
   font-size: .8em;
 }

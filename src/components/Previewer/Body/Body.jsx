@@ -22,7 +22,7 @@ export default class Body extends PureComponent {
 
     return (
       <div className="ge-previewer-body-container">
-        <div>
+        <div className="ge-chord-groups">
           {
             !headerForm.isEmbedChord && chords.map((chord) => (
               <Chord key={chord.name} chord={chord} options={{size: 'large'}}/>

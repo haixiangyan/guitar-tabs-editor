@@ -89,7 +89,7 @@ class Chord extends Component {
             return (
               <line
                 key={num}
-                className="line"
+                className="ge-chord-line"
                 x1={startPoint.x}
                 y1={startPoint.y}
                 x2={endPoint.x}
@@ -105,7 +105,7 @@ class Chord extends Component {
             return (
               <line
                 key={num}
-                className="line"
+                className="ge-chord-line"
                 x1={startPoint.x}
                 y1={startPoint.y}
                 x2={endPoint.x}
@@ -119,7 +119,7 @@ class Chord extends Component {
             let calculatedPoint = utils.getPointCoordinates(point, config),
               textPoint = utils.getTextCoordinates(point, config);
             return (
-              <g className="point" key={index}>
+              <g className="ge-chord-point" key={index}>
                 <circle
                   cx={calculatedPoint.x}
                   cy={calculatedPoint.y}
@@ -146,7 +146,7 @@ class Chord extends Component {
               middlePoint = utils.getMiddleCoordinates(startPoint, endPoint, config);
 
             return (
-              <g className="barre" key={line.text}>
+              <g className="ge-chord-barre" key={line.text}>
                 <line
                   x1={startPoint.x}
                   y1={startPoint.y}
@@ -170,7 +170,7 @@ class Chord extends Component {
         }
 
         {/*Name of this chord*/}
-        <text className="name"
+        <text className="ge-chord-name"
               fontSize={config.title.fontSize}
               x={config.title.x}
               y={config.title.y}>
@@ -185,13 +185,13 @@ class Chord extends Component {
             return (
               <g key={index}>
                 <line
-                  className="line"
+                  className="ge-chord-line"
                   x1={calculatedCross.leftLine.x1}
                   y1={calculatedCross.leftLine.y1}
                   x2={calculatedCross.leftLine.x2}
                   y2={calculatedCross.leftLine.y2}/>
                 <line
-                  className="line"
+                  className="ge-chord-line"
                   x1={calculatedCross.rightLine.x1}
                   y1={calculatedCross.rightLine.y1}
                   x2={calculatedCross.rightLine.x2}
@@ -204,7 +204,7 @@ class Chord extends Component {
         {
           min &&
           <text
-            className="min"
+            className="ge-chord-min"
             x={minPoint.x}
             y={minPoint.y}>
             {min.text}
@@ -215,7 +215,7 @@ class Chord extends Component {
         {
           max &&
           <text
-            className="max"
+            className="ge-chord-max"
             x={maxPoint.x}
             y={maxPoint.y}>
             {max.text}

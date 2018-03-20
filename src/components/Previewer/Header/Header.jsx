@@ -17,20 +17,20 @@ export default class Header extends PureComponent {
     return (
       <div className="ge-previewer-header">
         {/* Name of this song */}
-        <div className="song-info">
+        <div className="ge-song-info">
           <h1>{headerForm.song}</h1>
 
           {/* Singer */}
           <section>
-            <span className="keyword">Performed by: </span>{headerForm.singer}
+            <span className="ge-keyword">Performed by: </span>{headerForm.singer}
           </section>
           {/* Composer */}
           <section>
-            <span className="keyword">Composed by: </span>{headerForm.composer}
+            <span className="ge-keyword">Composed by: </span>{headerForm.composer}
           </section>
         </div>
 
-        <div className="meta">
+        <div className="ge-meta">
           <table>
             <tbody>
               {
