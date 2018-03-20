@@ -11,7 +11,7 @@ import './styles.css';
 import chords from '../../../../assets/dataSource/chords';
 
 // Define regular expression to get the chord
-const chordRegExp = /(?:\[([\w]*)\])?(.)?([^[]*)/g;
+const chordRegExp = /(?:\[([^\]]*)])?(.)?([^[]*)/g;
 const englishRegExp = /[a-zA-Z]/;
 
 const searchChord = (name) => {
@@ -49,7 +49,7 @@ export default class Lyrics extends PureComponent {
     })
 
     return chords;
-  }
+  };
 
   /**
    * Give a style to anchor according to its type
@@ -58,22 +58,13 @@ export default class Lyrics extends PureComponent {
     return {
       width: englishRegExp.test(anchor) ? 10 : 15,
     }
-  }
-
-  /**
-   * Give a style to lyrics container according to the type of chord
-   */
-  mapLyricsStyle = (isEmbedChord) => {
-    return {
-      paddingTop: isEmbedChord ? 15 : 10,
-      paddingBottom: isEmbedChord ? 15 : 10,
-    }
-  }
+  };
 
   render() {
     const {
       children,
-      isEmbedChord
+      isEmbedChord,
+      pushChords
     } = this.props;
 
     return (
@@ -85,18 +76,21 @@ export default class Lyrics extends PureComponent {
         <p className="ge-lyrics">
           {
             // Map each chord data to the lyrics
-            this.mapChords(children).map((chordData, index) => (
+            this.mapChords(children).map((chordData, index) => {
+              let chord = searchChord(chordData.name);
+
+              return (
               chordData.index > 0 ?
                 // Start with chord
                 <span className="ge-chord-item" key={index}>
-                  <span 
-                    style={this.mapAnchorStyle(chordData.anchor, chordData.index)} 
+                  <span
+                    style={this.mapAnchorStyle(chordData.anchor, chordData.index)}
                     className="ge-anchor">
                     {/* Anchor chord */}
                     {
                       isEmbedChord ?
                       <span className="ge-anchor-chordimg">
-                        <Chord chord={searchChord(chordData.name)} options={{size: 'small'}}/>
+                        <Chord chord={chord} options={{size: 'small'}}/>
                       </span>
                       :
                       <span className="ge-anchor-chordname">{chordData.name}</span>
@@ -112,7 +106,7 @@ export default class Lyrics extends PureComponent {
                   <span>{chordData.anchor}</span>
                   <span>{chordData.extra}</span>
                 </span>
-            ))
+            )})
           }
         </p>
       </div>
@@ -122,8 +116,8 @@ export default class Lyrics extends PureComponent {
 
 Lyrics.propTypes = {
   isEmbedChord: PropTypes.bool
-}
+};
 
 Lyrics.defaultProps = {
   isEmbedChord: false
-}
+};

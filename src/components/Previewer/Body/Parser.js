@@ -4,6 +4,8 @@ import Lyrics from './Lyrics/Lyrics';
 import Comment from './Comment/Comment';
 import Chorus from './Chorus/Chorus';
 
+import chords from '../../../assets/dataSource/chords';
+
 // Regular expression for global source text matching
 const metaRegExp = /^(?:{meta:([^}]*)})$/gm;
 
@@ -14,6 +16,18 @@ const endTabRegExp = /^{end_of_tab}$/g;
 const startChorusRegExp = /^{start_of_chorus}$/g;
 const endChorusRegExp = /^{end_of_chorus}$/g;
 const spaceRegExp = /^[\s]*$/g;
+const chordRegExp = /\[([^\]]*)]/g;
+
+// Search chord
+const searchChord = (name) => {
+  let chordsLen = chords.length;
+
+  for (let i = 0 ; i < chordsLen ; i++) {
+    if (chords[i].name === name) {
+      return chords[i];
+    }
+  }
+};
 
 export default {
   /**
@@ -142,6 +156,24 @@ export default {
     }
 
     return renderedBuffer;
+  },
+  /**
+   * Get chords that appear in the lyrics
+   * @param source
+   */
+  parseChords(source) {
+    // Chords
+    let chords = new Set(),
+        chord = {};
+
+    source.replace(chordRegExp, (match, chordName) => {
+      chord = searchChord(chordName);
+      if (chord) {
+        chords.add(chord);
+      }
+    });
+
+    return Array.from(chords);
   },
   /**
    * Method to parse source

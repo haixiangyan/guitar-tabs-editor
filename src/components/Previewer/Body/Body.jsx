@@ -9,8 +9,6 @@ import './styles.css';
 // Import Parser
 import Parser from './Parser';
 
-import chords from '../../../assets/dataSource/chords';
-
 export default class Body extends PureComponent {
 
   render() {
@@ -19,19 +17,20 @@ export default class Body extends PureComponent {
       editorForm,
     } = this.props;
     let test1 = Parser.preProcess(editorForm.content);
-    let test = Parser.parseBody(test1, headerForm.isEmbedChord);
+    let parsedContent = Parser.parseBody(test1, headerForm.isEmbedChord);
+    let chords = Parser.parseChords(test1);
 
     return (
       <div className="ge-previewer-body-container">
-        {/*<div>*/}
-          {/*{*/}
-            {/*chords.map((chord) => (*/}
-              {/*<Chord chord={chord} options={{size: ''}}></Chord>*/}
-            {/*))*/}
-          {/*}*/}
-        {/*</div>*/}
+        <div>
+          {
+            !headerForm.isEmbedChord && chords.map((chord) => (
+              <Chord key={chord.name} chord={chord} options={{size: 'large'}}/>
+            ))
+          }
+        </div>
         {
-          test.map((renderedItem, index) => (
+          parsedContent.map((renderedItem, index) => (
             <section className="ge-previewer-section" key={index}>
               {renderedItem}
             </section>
