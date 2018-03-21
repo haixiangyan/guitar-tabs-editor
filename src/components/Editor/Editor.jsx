@@ -13,7 +13,12 @@ export default class Editor extends Component {
   onChange = (event) => {
     // Emit form to APP component
     this.props.onChange(event.target.value);
-  }
+  };
+
+  // Ref
+  textAreaRef = (textArea) => {
+    this.textArea = textArea;
+  };
 
   render() {
     const {
@@ -22,12 +27,15 @@ export default class Editor extends Component {
 
     return (
       <div className="ge-editor">
-        <TextArea 
+        <TextArea
+          textAreaRef={this.textAreaRef}
           name="editor"
           value={form.content}
           className="ge-editor-textarea"
           onChange={this.onChange}>
         </TextArea>
+
+        {/*<div className="ge-editor-hint">Hello World</div>*/}
       </div>
     )
   }

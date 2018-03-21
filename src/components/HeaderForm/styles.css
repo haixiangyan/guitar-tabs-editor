@@ -22,3 +22,15 @@
   display: flex;
   align-items: center;
 }
+
+.ge-github {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: .5s box-shadow;
+}
+
+.ge-github:hover {
+  box-shadow: 0 5px 50px silver;
+}

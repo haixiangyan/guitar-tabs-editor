@@ -11,7 +11,8 @@ export default class TextArea extends Component {
       name,
       style,
       className,
-      onChange
+      onChange,
+      textAreaRef
     } = this.props;
 
     // Add one space if it has a className value
@@ -19,6 +20,7 @@ export default class TextArea extends Component {
 
     return (
       <textarea
+        ref={textAreaRef}
         value={value}
         name={name}
         style={style}
@@ -37,6 +39,7 @@ TextArea.propTypes = {
   style: PropTypes.object,
   className: PropTypes.string,
   onChange: PropTypes.func,
+  textAreaRef: PropTypes.func
 };
 
 TextArea.defaultProps = {
@@ -46,5 +49,6 @@ TextArea.defaultProps = {
   rows: 10,
   style: {},
   className: '',
-  onChange: () => {}
+  onChange: () => {},
+  textAreaRef: () => {}
 }

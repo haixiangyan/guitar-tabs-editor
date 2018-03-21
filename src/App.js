@@ -52,14 +52,9 @@ class App extends Component {
     });
   };
 
-  // Save this tab
-  save = () => {
-    alert('This tab is saved!');
-  };
-
-  // Reset this tab
-  reset = () => {
-    alert('The draft is reset!');
+  // Download as a pdf
+  download = () => {
+    alert('The draft is download!');
   };
 
   render() {
@@ -76,7 +71,7 @@ class App extends Component {
           <HeaderForm
             form={headerForm}
             onChange={this.handleHeaderForm}
-            save={this.save}
+            download={this.download}
             tips={this.toggleHelper}>
           </HeaderForm>
         </header>

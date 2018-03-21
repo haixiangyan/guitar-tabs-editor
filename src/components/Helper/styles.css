@@ -19,6 +19,10 @@
     border: 1px solid silver;
 }
 
+.ge-helper-chords h1 {
+    text-align: center;
+}
+
 /*Cancel button styles*/
 .ge-helper-cancel-btn {
     padding: 3px;

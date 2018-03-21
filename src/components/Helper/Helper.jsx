@@ -19,6 +19,8 @@ class Helper extends Component {
     return (
       <div className="ge-helper">
         <div className="ge-helper-chords">
+          <h1>Guitar Chords Helper</h1>
+          <hr/>
           {
             chords.map((chord) => (
               <Chord key={chord.name} chord={chord}/>
