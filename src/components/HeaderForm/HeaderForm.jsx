@@ -34,7 +34,7 @@ export default class HeaderForm extends Component {
   render() {
     const {
       form,
-      download,
+      preview,
       tips
     } = this.props;
 
@@ -87,8 +87,8 @@ export default class HeaderForm extends Component {
           <Button
             style={styles.offsetRight}
             type="primary"
-            onClick={download}>
-            Download
+            onClick={preview}>
+            Preview
           </Button>
 
           <Button
@@ -104,7 +104,7 @@ export default class HeaderForm extends Component {
 
 HeaderForm.propTypes = {
   onChange: PropTypes.func,
-  download: PropTypes.func,
+  preview: PropTypes.func,
   tips: PropTypes.func,
   form: PropTypes.object
 };
@@ -112,7 +112,7 @@ HeaderForm.propTypes = {
 HeaderForm.defaultProps = {
   onChange: () => {
   },
-  download: () => {
+  preview: () => {
   },
   tips: () => {
   },

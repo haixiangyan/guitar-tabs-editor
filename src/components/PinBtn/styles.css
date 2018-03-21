@@ -1,0 +1,21 @@
+.ge-pinbtn {
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s box-shadow;
+}
+
+.ge-pinbtn:hover {
+    box-shadow: 0 4px 30px silver;
+}
+
+.ge-result-err {
+    text-align: center;
+    font-size: 2em;
+}

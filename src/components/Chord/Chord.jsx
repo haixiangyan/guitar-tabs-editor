@@ -170,7 +170,7 @@ class Chord extends Component {
         }
 
         {/*Name of this chord*/}
-        <text className="ge-chord-name"
+        <text className="ge-name"
               fontSize={config.title.fontSize}
               x={config.title.x}
               y={config.title.y}>
@@ -185,13 +185,13 @@ class Chord extends Component {
             return (
               <g key={index}>
                 <line
-                  className="ge-chord-line"
+                  className="ge-line"
                   x1={calculatedCross.leftLine.x1}
                   y1={calculatedCross.leftLine.y1}
                   x2={calculatedCross.leftLine.x2}
                   y2={calculatedCross.leftLine.y2}/>
                 <line
-                  className="ge-chord-line"
+                  className="ge-line"
                   x1={calculatedCross.rightLine.x1}
                   y1={calculatedCross.rightLine.y1}
                   x2={calculatedCross.rightLine.x2}
@@ -204,7 +204,7 @@ class Chord extends Component {
         {
           min &&
           <text
-            className="ge-chord-min"
+            className="ge-min"
             x={minPoint.x}
             y={minPoint.y}>
             {min.text}
@@ -215,7 +215,7 @@ class Chord extends Component {
         {
           max &&
           <text
-            className="ge-chord-max"
+            className="max"
             x={maxPoint.x}
             y={maxPoint.y}>
             {max.text}

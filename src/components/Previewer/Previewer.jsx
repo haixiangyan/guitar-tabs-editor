@@ -11,12 +11,12 @@ import './markdown.css';
 
 export default class Previewer extends Component {
   render() {
-    const { headerForm, editorForm } = this.props;
+    const { headerForm, editorForm, previewerRef, isEdit } = this.props;
 
     return (
-      <div className="ge-previewer markdown-body">
-        <Header editorForm={editorForm} headerForm={headerForm}></Header>
-        <Body editorForm={editorForm} headerForm={headerForm}></Body>
+      <div ref={previewerRef} className={`ge-previewer ${isEdit ? 'ge-previewer-edit' : 'ge-previewer-preview'} markdown-body`}>
+        <Header editorForm={editorForm} headerForm={headerForm}/>
+        <Body editorForm={editorForm} headerForm={headerForm}/>
       </div>
     )
   }
@@ -25,6 +25,7 @@ export default class Previewer extends Component {
 Previewer.propTypes = {
   headerForm: PropTypes.object,
   editorForm: PropTypes.object,
+  isEdit: PropTypes.bool
 };
 
 Previewer.defaultProps = {
@@ -36,5 +37,6 @@ Previewer.defaultProps = {
   },
   editorForm: {
     content: ''
-  }
-}
+  },
+  isEdit: false
+};

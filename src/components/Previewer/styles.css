@@ -1,8 +1,15 @@
 .ge-previewer {
   padding: 20px;
-  width: 49%;
-  height: 85vh;
   background: white;
-  overflow-y: auto;
   box-sizing: border-box;
+}
+
+.ge-previewer-edit {
+  width: 49%;
+  overflow-y: auto;
+  height: 85vh;
+}
+
+.ge-previewer-preview {
+  padding: 30px;
 }
