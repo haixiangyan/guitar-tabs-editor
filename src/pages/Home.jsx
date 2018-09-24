@@ -17,9 +17,9 @@ class Home extends Component {
   state = {
     // Basic information of this song
     headerForm: {
-      song: 'Unknown song',
-      singer: 'Unknown singer',
-      composer: 'Unknown composer',
+      song: 'Song of Guitar',
+      singer: 'Haixiang',
+      composer: 'Monster',
       isEmbedChord: false
     },
     // Editor content

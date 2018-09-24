@@ -3,11 +3,6 @@
   align-items: center;
 }
 
-.ge-lyrics span,
-.ge-lyrics p {
-  letter-spacing: 4px;
-}
-
 .ge-lyrics .ge-chord-item {
   margin: 5px 0;
   display: inline-flex;
@@ -17,7 +12,10 @@
 /* Anchor for each character */
 .ge-lyrics .ge-anchor {
   position: relative;
-  display: inline-block;
+  margin-left: 1em;
+  margin-right: 3px;
+  display: inline-flex;
+  justify-content: center;
   height: 25px;
   line-height: 2em;
   border-bottom: 1px solid #24292e;

@@ -1,9 +1,9 @@
 export default {
-  content: `{meta: 原调: 1=D}
-{meta: 选调: 1=C}
+  content: `{meta: Original: 1=D}
+{meta: Select: 1=C}
 {meta: Capo=2}
 
-{comment: 前奏/间奏}
+{comment: Prelude/Interlude}
 {start_of_tab}
 |-------|-------|-------|-------|
 |3------|3------|3------|3------|
@@ -13,28 +13,27 @@ export default {
 |----0--|----0--|----0--|----0--|
 {end_of_tab}
 
-{comment: 主歌 A}
-[C] 我有[Em7]好多
-谱子[F]
-[C] 个个[Em7]都来之不易[C]
+{comment: Main A}
+[C] I have[Em7] many many tabs[F]
+[C] Each one[Em7] is not easy to get[C]
 
-[C]踏破[Em7]多少双[F]铁鞋
-[C]跪烂[Em7]多少次[C]膝盖
+[C]With [Em7] too much [F]tears
+[C]With [Em7] too much [C]efforts
 
-{comment: 主歌 B}
-[C] 我有[Em7]好多谱子[F]
-[C] 个个[Em7]都来之不易
+{comment: Main B}
+[C] I have[Em7] so many tabs[F]
+[C] Each one[Em7]is not easy to get
 
-[C]磨起[Em7]多少个[F]耳茧
-[C]听腻[Em7]多少首[C]经典
+[C]Hear[Em7] too many[F]songs
+[C]Play[Em7] too many[C]songs
 
-{comment: 副歌}
+{comment: Refrain}
 {start_of_chorus}
-[Am]旧酒装新瓶
-[F]同步到平板
-[Am]啦啦啦啦～～ [C]啦啦啦啦～～
-[Am]长相厮守
-[F]朝夕为伴
-[Am]啦啦啦啦～～ [C]啦啦啦啦～～
+[Am]Sing what she listen to
+[F]Love what she love
+[Am]la la la la～～ [C]la la la la～～
+[Am]But she never love me
+[F]Only guitar is my love
+[Am]la la la la～～ [C]la la la la～～
 {end_of_chorus}`
 }
