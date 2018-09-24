@@ -4,6 +4,10 @@ A portable guitar editor is coded based on react.js, inspired by Markdown and La
 
 The chords and tab paragraphs components are based on `<svg/>` tech.
 
+## Demo
+
+[Demo](https://haixiang6123.github.io/guitar-editor/#/)
+
 ## ScreenShot
 ![Home page](./Screenshots/Home.png)
 
