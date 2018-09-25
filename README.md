@@ -6,7 +6,7 @@ The chords and tab paragraphs components are based on `<svg/>` tech.
 
 ## Demo
 
-[Demo](https://haixiang6123.github.io/guitar-editor/#/)
+[Click here to see the demo](https://haixiang6123.github.io/guitar-editor/#/)
 
 ## ScreenShot
 ![Home page](./Screenshots/Home.png)
