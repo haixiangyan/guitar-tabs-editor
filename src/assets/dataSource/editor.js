@@ -29,8 +29,8 @@ export default {
 
 {comment: Refrain}
 {start_of_chorus}
-[Am]Sing what she listen to
-[F]Love what she love
+[Am]Sing what she listens to
+[F]Love what she loves
 [Am]la la la la～～ [C]la la la la～～
 [Am]But she never love me
 [F]Only guitar is my love
