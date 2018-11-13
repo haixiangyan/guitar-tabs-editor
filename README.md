@@ -39,7 +39,7 @@ $ npm start
 $ npm run build         # To build this project
 ```
 
-## Future
+## Advance
 
 This project is written in the period of my final week, so there are some parsing parts that are not the most optimized one.
 For example, if you type really fast in the `<textarea/>` element, the editor might have some 'stuck' behaviors.
