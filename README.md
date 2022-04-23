@@ -10,7 +10,7 @@ Two components that related to this projects are published to npm. If you are in
 
 ## Demo
 
-[Click here to see the demo](https://haixiang6123.github.io/guitar-editor/#/)
+[Click here to see the demo](https://haixiang6123.github.io/guitar-tabs-editor/#/)
 
 ## ScreenShot
 ![Home page](./Screenshots/Home.png)
