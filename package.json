@@ -2,7 +2,7 @@
   "name": "guitareditor",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Haixiang6123.github.io/guitar-editor",
+  "homepage": "https://Haixiang6123.github.io/guitar-tabs-editor",
   "dependencies": {
     "gh-pages": "^2.0.0",
     "react": "^16.2.0",
